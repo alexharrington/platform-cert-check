@@ -52,6 +52,8 @@ depth=2: C = US, O = "DigiCert, Inc.", CN = DigiCert TLS RSA4096 Root G5 (untrus
 depth=3: C = US, O = DigiCert Inc, OU = www.digicert.com, CN = DigiCert Global Root CA
 ```
 
+Another example where some fail validation.
+
 ```
 Testing cacerts/android-4.2
 C = US, O = Let's Encrypt, CN = R10
