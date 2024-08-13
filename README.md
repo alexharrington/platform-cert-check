@@ -95,3 +95,15 @@ C = US, O = Let's Encrypt, CN = R10
 error 20 at 1 depth lookup: unable to get local issuer certificate
 error example.org.crt: verification failed
 ```
+
+## Android certificate bundles
+Each recent >= 10 Android release has its certificates downloadable here:
+
+https://android.googlesource.com/platform/system/ca-certificates/+/refs/heads/android14-release/files/
+
+* Replace `android14-release` in the URL with the version required.
+* Download the `tgz` link, and extract in to a new folder in `cacerts`.
+* `cd` in to the new folder and run `cat * > ca-certificates.crt`
+* The new certificates should be available to test with
+
+
