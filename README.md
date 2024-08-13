@@ -111,3 +111,15 @@ strings platform.img | sed -n '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICA
 This will give some false-positives as there are certificates in the image
 which are presumably used for validating firmware signatures etc, but
 it should be good enough for testing public CA compatibility.
+
+
+## webOS Firmware Extract
+Early webOS firmware can be extracted with the tool found here:
+https://github.com/openlgtv/epk2extract
+
+Once extracted, the certificate store is in:
+
+```
+rootfs.pak.unsquashfs/etc/ssl/certs/ca-certificates.crt
+rootfs.pak.unsquashfs/usr/share/ca-certificates/mozilla/*
+```
