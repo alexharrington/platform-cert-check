@@ -95,3 +95,19 @@ C = US, O = Let's Encrypt, CN = R10
 error 20 at 1 depth lookup: unable to get local issuer certificate
 error example.org.crt: verification failed
 ```
+
+## Samsung Tizen Firmware Extract
+Tizen firmware can be extracted with the tool found here:
+https://github.com/bugficks/msddecrypt
+
+Once extracted, certificate store is in the platform.img file.
+
+To recover just certificates, use the following command:
+
+```
+strings platform.img | sed -n '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p' | tee ca-certificates.crt | keytool -printcert -v
+```
+
+This will give some false-positives as there are certificates in the image
+which are presumably used for validating firmware signatures etc, but
+it should be good enough for testing public CA compatibility.
