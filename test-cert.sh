@@ -29,8 +29,8 @@ fi
 
 if [ $# -ne 2 ];
 then
-    echo "Missing parameters. $0 certificate all"
-    echo "all can be substituted for a specific platform if you wish."
+    echo "Missing parameters. $0 certificate [all|android|webos|tizen]"
+    echo "2nd parameter can be substituted for a specific platform if you wish."
     echo "certificate.crt and the chain for the certificate must be at certificate.chain.crt"
     exit 1
 fi
@@ -53,6 +53,27 @@ if [ $2 == all ]
 then
     i=1
     for d in cacerts/*
+    do
+        platforms[i++]="${d%/}"
+    done
+elif [ $2 == android ]
+then
+    i=1
+    for d in cacerts/android-*
+    do
+        platforms[i++]="${d%/}"
+    done
+elif [ $2 == webos ]
+then
+    i=1
+    for d in cacerts/webos-*
+    do
+        platforms[i++]="${d%/}"
+    done
+elif [ $2 == tizen ]
+then
+    i=1
+    for d in cacerts/tizen-*
     do
         platforms[i++]="${d%/}"
     done
